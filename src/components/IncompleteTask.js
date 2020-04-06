@@ -10,12 +10,13 @@ export class IncomleteTask extends Component {
       list: []
     };
     this.arrayOfList=this.arrayOfList.bind(this)
-    this.showTaskFromAddTask=this.showTaskFromAddTask(this)
+    this.showTaskFromAddTask=this.showTaskFromAddTask.bind(this);
     console.log(props);
   }
 
   showTaskFromAddTask(task){
     console.log("Task: ", task)
+    this.arrayOfList(task);
   }
 
   arrayOfList(task) {
@@ -27,7 +28,7 @@ export class IncomleteTask extends Component {
     return (
       <div>
         <div>
-          <AddTask  addNewTaskToList={this.showTaskFromAddTask} />
+          <AddTask  callbackNewTask={this.showTaskFromAddTask} />
         </div>
         <div>
           <ul>

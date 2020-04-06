@@ -7,13 +7,13 @@ export class AddTask extends Component {
     this.state = {
       newTask: ""
     };
-    this.enter = this.enter.bind(this);
+    this.addNewTask = this.addNewTask.bind(this);
     this.updateTask = this.updateTask.bind(this);
-    this.addNewTaskToList = this.addNewTaskToList.bind(this);
+    this.sendTaskToIncompleteTask = this.sendTaskToIncompleteTask.bind(this);
   }
 
-  addNewTaskToList(){
-    this.props.addNewTask(this.state.newTask);
+  sendTaskToIncompleteTask(){
+    this.props.callbackNewTask(this.state.newTask);
   }
 
   updateTask(event) {
@@ -23,20 +23,18 @@ export class AddTask extends Component {
     console.log(this.state.newTask);
   }
 
-  enter(event) {
-    this.setState({
-      nameUser: event.target.value
-    });
-    console.log("enter yes", this.state);
+  addNewTask(event) {
+    this.sendTaskToIncompleteTask();
+    console.log("addNewTask yes", this.state);
   }
 
   render() {
     return (
       <div>
         <form>
-          <input value={this.state.newTask} onChange={this.updateTask} type="text" />
+          <input value={this.state.newTask} onChange={this.updateTask}  />
         </form>
-        <button onClick={this.enter}>Enter</button>
+        <button onClick={this.addNewTask}>ADD</button>
       </div>
     );
   }
