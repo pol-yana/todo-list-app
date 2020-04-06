@@ -26,6 +26,9 @@ export class AddTask extends Component {
   addNewTask(event) {
     this.sendTaskToIncompleteTask();
     console.log("addNewTask yes", this.state);
+    this.setState({
+      newTask: ""
+    });
   }
 
   render() {
