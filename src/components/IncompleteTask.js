@@ -7,6 +7,7 @@ export class IncomleteTask extends Component {
     super(props);
     this.state = {
       list: [],
+     
     };
     this.arrayOfList = this.arrayOfList.bind(this);
     this.showTaskFromAddTask = this.showTaskFromAddTask.bind(this);
