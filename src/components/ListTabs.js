@@ -1,22 +1,22 @@
 import React from "react";
 import { Component } from "react";
-import  IncompleteTask from "./IncompleteTask"
+//import  IncompleteTask from "./IncompleteTask"
 
 export class ListTabs extends Component {
   constructor(props){
     super(props);
     this.state = {
+      incompleteStatus:true,
+      completeStatus:false,
     };
-    this.incompleteListStatus = this.incompleteListStatus.bind(this);
-    this.completeListStatus = this.completeListStatus.bind(this);
+    this.ListStatus = this.ListStatus.bind(this);
   }
 
-  incompleteListStatus(){
-    return (<IncompleteTask/>);
-  }
-
-  completeListStatus(){
-
+  ListStatus(){
+   if (this.state.incompleteStatus===true){this.setState({incompleteStatus:false,
+    completeStatus:true})
+    }else{this.setState({incompleteStatus:false,
+      completeStatus:true})}
   }
 
   render() {
@@ -24,11 +24,11 @@ export class ListTabs extends Component {
       <div className="container">
         <ul className="row">
           <li className="col-6">
-            <button onClick={this.incompleteListStatus}>Incomplete Task</button>
+            <button onClick={this.ListStatus}>Incomplete Task</button>
           </li>
 
           <li className="col-6">
-            <button onClick={this.completeListStatus}>Complete Task</button>
+            <button onClick={this.ListStatus}>Complete Task</button>
           </li>
         </ul>
       </div>
