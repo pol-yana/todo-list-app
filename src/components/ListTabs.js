@@ -1,34 +1,40 @@
 import React from "react";
 import { Component } from "react";
-//import  IncompleteTask from "./IncompleteTask"
+import  ShowIncompleteTask from "./ShowIncompleteTask"
+import ShowCompleteTask from "./ShowCompleteTask"
 
 export class ListTabs extends Component {
   constructor(props){
     super(props);
     this.state = {
-      incompleteStatus:true,
-      completeStatus:false,
+      //incompleteStatus:true,
+      //completeStatus:false,
     };
-    this.ListStatus = this.ListStatus.bind(this);
+    //this.ListStatus = this.ListStatus.bind(this);
+    console.log(this.state)
   }
 
-  ListStatus(){
-   if (this.state.incompleteStatus===true){this.setState({incompleteStatus:false,
-    completeStatus:true})
-    }else{this.setState({incompleteStatus:false,
-      completeStatus:true})}
-  }
+  // ListStatus(){
+  // if (this.state.incompleteStatus===true){
+  //   this.setState({incompleteStatus:false,
+  //   completeStatus:true})
+  //   }else{
+  //     this.setState({incompleteStatus:false,
+  //     completeStatus:true})
+  //   }
+  // }
+
 
   render() {
     return (
       <div className="container">
         <ul className="row">
           <li className="col-6">
-            <button onClick={this.ListStatus}>Incomplete Task</button>
+            <button onClick={<ShowIncompleteTask/>}>Incomplete Task</button>
           </li>
 
           <li className="col-6">
-            <button onClick={this.ListStatus}>Complete Task</button>
+            <button onClick={<ShowCompleteTask/>}>Complete Task</button>
           </li>
         </ul>
       </div>

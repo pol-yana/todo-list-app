@@ -7,11 +7,17 @@ export class IncomleteTask extends Component {
     super(props);
     this.state = {
       list: [],
-     
+      completeTask:""
     };
     this.arrayOfList = this.arrayOfList.bind(this);
     this.showTaskFromAddTask = this.showTaskFromAddTask.bind(this);
+    this.sendTaskToCompleteTask = this.sendTaskToCompleteTask.bind(this);
+    this.markCompleteTask = this.markCompleteTask.bind(this)
     console.log(props);
+  }
+
+  sendTaskToCompleteTask() {
+    this.props.callbackCompleteTask(this.state.completeTask);
   }
 
   showTaskFromAddTask(task) {
@@ -22,6 +28,13 @@ export class IncomleteTask extends Component {
   arrayOfList(task) {
     this.setState((state) => ({ list: state.list.concat([task]) }));
     console.log("List: ", this.state.list);
+  }
+
+  markCompleteTask(event){
+    this.setState({
+      completeTask: event.target.value
+    });
+    this.sendTaskToCompleteTask();
   }
 
   render() {
@@ -37,7 +50,10 @@ export class IncomleteTask extends Component {
                 <div>
                   <hr />
                   <p>
-                    <button><img  src="./images/ok2.png" alt="ok"/></button> {task}
+                    <button onClick={this.markCompleteTask}>
+                      <img src="./images/ok2.png" alt="ok" />
+                    </button>{" "}
+                    {task}
                   </p>
                 </div>
               );
