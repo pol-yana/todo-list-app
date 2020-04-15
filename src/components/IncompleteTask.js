@@ -1,6 +1,8 @@
 import React from "react";
 import { Component } from "react";
 import AddTask from "./AddTask";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 
 export class IncomleteTask extends Component {
   constructor(props) {
@@ -51,7 +53,7 @@ export class IncomleteTask extends Component {
                   <hr />
                   <p>
                     <button onClick={this.markCompleteTask}>
-                      <img src="./images/ok2.png" alt="ok" />
+                      <FontAwesomeIcon icon={faCheckCircle} />
                     </button>{" "}
                     {task}
                   </p>
