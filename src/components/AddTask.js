@@ -19,7 +19,7 @@ export class AddTask extends Component {
 
   updateTask(event) {
     this.setState({
-      newTask: event.target.value
+      newTask:event.target.value,
     });
     console.log(this.state.newTask);
   }
@@ -28,7 +28,7 @@ export class AddTask extends Component {
     this.sendTaskToIncompleteTask();
     console.log("addNewTask yes", this.state);
     this.setState({
-      newTask: ""
+      newTask:""
     });
   }
 

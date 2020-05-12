@@ -5,14 +5,19 @@ export class Date extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dateNow: "new Date()"
+      date:""
     };
+    //this.showDateNow = this.showDateNow.bind(this);
   }
 
+  currentDate(){
+    this.setState({date:new Date().toLocalDateString()})
+  }
+ 
   render() {
     return (
       <div>
-        <p>Date:{this.props.dateNow}</p>
+        <p>Date: {this.state.date}</p>
       </div>
     );
   }
